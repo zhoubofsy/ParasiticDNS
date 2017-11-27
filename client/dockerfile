@@ -1,0 +1,9 @@
+
+from centos:7.4.1708
+
+run yum update -y
+
+run yum install -y bind-utils
+
+workdir /root
+

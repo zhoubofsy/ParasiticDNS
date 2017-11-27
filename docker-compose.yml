@@ -1,0 +1,21 @@
+version: '3'
+services:
+  ParasiticDNS:
+    build: .
+    image: "dns:parasitic"
+    ports:
+      - "8053:53"
+    volumes:
+      - ./src:/root/dns
+    command:
+      /usr/sbin/init
+  Client:
+    build: ./client
+    image: "dns:client"
+    command:
+      /usr/sbin/init
+
+networks:
+  default:
+    driver: bridge
+
